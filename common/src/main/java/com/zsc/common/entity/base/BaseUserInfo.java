@@ -14,7 +14,7 @@ import javax.persistence.MappedSuperclass;
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseUserInfo extends HasTimeEntity{
+public class BaseUserInfo extends HasCreateEntity{
 
     // 用户名
     private String username;

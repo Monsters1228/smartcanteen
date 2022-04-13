@@ -1,5 +1,6 @@
 package com.zsc.common.entity.system;
 
+import com.zsc.common.entity.base.HasCreateEntity;
 import com.zsc.common.entity.base.HasTimeEntity;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import javax.persistence.Entity;
  */
 @Data
 @Entity
-public class RoleInfo extends HasTimeEntity {
+public class RoleInfo extends HasCreateEntity {
 
     // 角色名称
     private String name;

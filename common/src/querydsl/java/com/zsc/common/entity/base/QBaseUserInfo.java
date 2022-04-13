@@ -19,10 +19,13 @@ public class QBaseUserInfo extends EntityPathBase<BaseUserInfo> {
 
     public static final QBaseUserInfo baseUserInfo = new QBaseUserInfo("baseUserInfo");
 
-    public final QHasTimeEntity _super = new QHasTimeEntity(this);
+    public final QHasCreateEntity _super = new QHasCreateEntity(this);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> created = _super.created;
+
+    //inherited
+    public final StringPath creatorName = _super.creatorName;
 
     public final StringPath email = createString("email");
 
@@ -31,6 +34,9 @@ public class QBaseUserInfo extends EntityPathBase<BaseUserInfo> {
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modified = _super.modified;
+
+    //inherited
+    public final StringPath modifiedName = _super.modifiedName;
 
     public final StringPath password = createString("password");
 

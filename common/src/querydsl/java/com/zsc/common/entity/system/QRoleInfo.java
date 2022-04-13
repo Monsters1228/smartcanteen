@@ -19,10 +19,13 @@ public class QRoleInfo extends EntityPathBase<RoleInfo> {
 
     public static final QRoleInfo roleInfo = new QRoleInfo("roleInfo");
 
-    public final com.zsc.common.entity.base.QHasTimeEntity _super = new com.zsc.common.entity.base.QHasTimeEntity(this);
+    public final com.zsc.common.entity.base.QHasCreateEntity _super = new com.zsc.common.entity.base.QHasCreateEntity(this);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> created = _super.created;
+
+    //inherited
+    public final StringPath creatorName = _super.creatorName;
 
     public final StringPath description = createString("description");
 
@@ -31,6 +34,9 @@ public class QRoleInfo extends EntityPathBase<RoleInfo> {
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modified = _super.modified;
+
+    //inherited
+    public final StringPath modifiedName = _super.modifiedName;
 
     public final StringPath name = createString("name");
 

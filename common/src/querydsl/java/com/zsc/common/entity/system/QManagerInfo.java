@@ -25,6 +25,9 @@ public class QManagerInfo extends EntityPathBase<ManagerInfo> {
     public final DateTimePath<java.time.LocalDateTime> created = _super.created;
 
     //inherited
+    public final StringPath creatorName = _super.creatorName;
+
+    //inherited
     public final StringPath email = _super.email;
 
     //inherited
@@ -32,6 +35,9 @@ public class QManagerInfo extends EntityPathBase<ManagerInfo> {
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modified = _super.modified;
+
+    //inherited
+    public final StringPath modifiedName = _super.modifiedName;
 
     //inherited
     public final StringPath password = _super.password;

@@ -1,6 +1,7 @@
 package com.zsc.common.entity.system;
 
 import com.zsc.common.entity.base.BaseUserInfo;
+import com.zsc.common.entity.base.HasCreateEntity;
 import lombok.Data;
 import org.hibernate.annotations.Proxy;
 
@@ -14,7 +15,7 @@ import javax.persistence.Entity;
 @Data
 @Entity
 @Proxy(lazy = false)
-public class UserInfo extends BaseUserInfo {
+public class UserInfo extends HasCreateEntity {
 
     // 微信号
     private  String wechat;

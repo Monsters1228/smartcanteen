@@ -19,7 +19,7 @@ public class QUserInfo extends EntityPathBase<UserInfo> {
 
     public static final QUserInfo userInfo = new QUserInfo("userInfo");
 
-    public final com.zsc.common.entity.base.QBaseUserInfo _super = new com.zsc.common.entity.base.QBaseUserInfo(this);
+    public final com.zsc.common.entity.base.QHasCreateEntity _super = new com.zsc.common.entity.base.QHasCreateEntity(this);
 
     public final StringPath className = createString("className");
 
@@ -27,7 +27,7 @@ public class QUserInfo extends EntityPathBase<UserInfo> {
     public final DateTimePath<java.time.LocalDateTime> created = _super.created;
 
     //inherited
-    public final StringPath email = _super.email;
+    public final StringPath creatorName = _super.creatorName;
 
     public final StringPath faceFileName = createString("faceFileName");
 
@@ -40,18 +40,9 @@ public class QUserInfo extends EntityPathBase<UserInfo> {
     public final DateTimePath<java.time.LocalDateTime> modified = _super.modified;
 
     //inherited
-    public final StringPath password = _super.password;
-
-    //inherited
-    public final StringPath phone = _super.phone;
+    public final StringPath modifiedName = _super.modifiedName;
 
     public final StringPath userId = createString("userId");
-
-    //inherited
-    public final StringPath username = _super.username;
-
-    //inherited
-    public final EnumPath<com.zsc.common.entity.base.UserType> userType = _super.userType;
 
     //inherited
     public final NumberPath<Long> version = _super.version;

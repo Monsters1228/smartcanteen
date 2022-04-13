@@ -1,5 +1,6 @@
 package com.zsc.common.service;
 
+import com.zsc.common.entity.base.ResultData;
 import com.zsc.common.entity.system.ManagerInfo;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface ManagerService {
     List<ManagerInfo> getAll();
 
     ManagerInfo getItemByName(String name);
+
+    ResultData managerLogin(String username, String password);
 }

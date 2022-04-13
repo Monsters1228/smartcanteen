@@ -2,6 +2,7 @@ package com.zsc.common.service.impl;
 
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.zsc.common.entity.base.ResultData;
 import com.zsc.common.entity.system.ManagerInfo;
 import com.zsc.common.entity.system.QManagerInfo;
 import com.zsc.common.repository.ManagerInfoRepository;
@@ -39,5 +40,10 @@ public class ManagerServiceImpl implements ManagerService {
     public ManagerInfo getItemByName(String name) {
         Predicate predicate = qManagerInfo.username.eq(name);
         return repository.findOne(predicate).get();
+    }
+
+    @Override
+    public ResultData managerLogin(String username, String password) {
+        return null;
     }
 }

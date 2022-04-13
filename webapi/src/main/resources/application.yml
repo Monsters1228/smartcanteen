@@ -30,3 +30,14 @@ spring:
     port: 6379
     timeout: 6000
     host: localhost
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+## logback配置
+logging:
+  level:
+    org:
+      springframework:
+        security: info

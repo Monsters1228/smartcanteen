@@ -1,0 +1,32 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: SMARTCAFETERIA-WEBAPI
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    url: jdbc:mysql://localhost:3308/smartcafeteria?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+    initial-size: 20
+    min-idle: 10
+    max-active: 100
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+
+  redis:
+    database: 6
+    port: 6379
+    timeout: 6000
+    host: localhost

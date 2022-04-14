@@ -29,8 +29,10 @@ import java.util.List;
 public class ManagerServiceImpl implements ManagerService {
 
 
+    // jpa 基础查询仓库
     private final ManagerInfoRepository repository;
 
+    // queryDsl 查询构建器
     private final JPAQueryFactory factory;
 
     QManagerInfo qManagerInfo = QManagerInfo.managerInfo;
@@ -43,6 +45,7 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public ResultData<PageData<ManagerInfoVO>> query(BasePageDTO pageDTO) {
+        // 使用 jap + queryDsl 进行查询
         PageRequest pageRequest = PageRequest.of(pageDTO.getPageNum() - 1, pageDTO.getPageSize());
         Page<ManagerInfo> page = repository.findAll(pageRequest);
         List<ManagerInfoVO> voList = ManagerInfoTransfer.INSTANCE.toVOList(page.getContent());
@@ -51,12 +54,19 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public ManagerInfo getItemByName(String name) {
-        Predicate predicate = qManagerInfo.username.eq(name);
-        return repository.findOne(predicate).get();
+        // 使用原生 queryDsl 查询
+        return this.factory.selectFrom(qManagerInfo).where(qManagerInfo.username.eq(name)).fetchOne();
     }
 
     @Override
     public ResultData managerLogin(String username, String password) {
-        return null;
+        ManagerInfo managerInfo = this.getItemByName(username);
+        if (managerInfo == null){
+            return ResultData.getFailResult("用户名不存在");
+        }
+        if (!managerInfo.getPassword().equals(password)){
+            return ResultData.getFailResult("密码错误");
+        }
+        return ResultData.getSuccessResult("登录成功");
     }
 }

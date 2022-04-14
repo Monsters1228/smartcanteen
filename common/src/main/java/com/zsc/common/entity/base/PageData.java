@@ -1,7 +1,9 @@
 package com.zsc.common.entity.base;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.List;
  * @date 2022/4/14 1:05 上午
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageData<T>{
 
     @ApiModelProperty(value = "当前页", example = "1")
@@ -42,6 +46,23 @@ public class PageData<T>{
         pageData.setTotal(page.getTotalElements());
         pageData.setPages(page.getTotalPages());
         pageData.setData(page.getContent());
+        return pageData;
+    }
+
+    /**
+     *  将 pageData 转为 pageData
+     * @param page
+     * @param data
+     * @param <T>
+     * @return
+     */
+    public static <T> PageData convertPageData(Page<?> page, List<T> data){
+        PageData<T> pageData = new PageData<>();
+        pageData.setCurrent(page.getNumber() + 1);
+        pageData.setPageSize(page.getSize());
+        pageData.setTotal(page.getTotalElements());
+        pageData.setPages(page.getTotalPages());
+        pageData.setData(data);
         return pageData;
     }
 }

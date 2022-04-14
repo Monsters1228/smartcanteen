@@ -3,6 +3,7 @@ package com.zsc.webapi.controller;
 import com.zsc.common.entity.base.BasePageDTO;
 import com.zsc.common.entity.base.PageData;
 import com.zsc.common.entity.base.ResultData;
+import com.zsc.common.entity.model.vo.ManagerInfoVO;
 import com.zsc.common.entity.system.ManagerInfo;
 import com.zsc.common.service.ManagerService;
 import io.swagger.annotations.Api;
@@ -35,7 +36,7 @@ public class ManagerController {
 
     @Operation(summary = "获取管理员列表")
     @PostMapping("/manager/query")
-    public ResultData<PageData<ManagerInfo>> query(@Validated @RequestBody BasePageDTO pageDTO, BindingResult bindingResult) {
+    public ResultData<PageData<ManagerInfoVO>> query(@Validated @RequestBody BasePageDTO pageDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             return ResultData.getFailResult(bindingResult.getFieldError().getDefaultMessage());
         }

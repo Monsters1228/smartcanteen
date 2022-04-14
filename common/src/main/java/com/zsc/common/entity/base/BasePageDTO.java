@@ -1,5 +1,6 @@
 package com.zsc.common.entity.base;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +11,7 @@ import lombok.Setter;
  * @author Monsters
  * @date 2022/4/13 10:44 下午
  */
-@Getter
-@Setter
+@Data
 public class BasePageDTO {
 
     /**

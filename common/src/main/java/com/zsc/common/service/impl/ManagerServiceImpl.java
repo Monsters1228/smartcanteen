@@ -5,6 +5,8 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.zsc.common.entity.base.BasePageDTO;
 import com.zsc.common.entity.base.PageData;
 import com.zsc.common.entity.base.ResultData;
+import com.zsc.common.entity.model.transfer.ManagerInfoTransfer;
+import com.zsc.common.entity.model.vo.ManagerInfoVO;
 import com.zsc.common.entity.system.ManagerInfo;
 import com.zsc.common.entity.system.QManagerInfo;
 import com.zsc.common.repository.ManagerInfoRepository;
@@ -14,6 +16,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 /**
@@ -38,10 +42,11 @@ public class ManagerServiceImpl implements ManagerService {
 
 
     @Override
-    public ResultData<PageData<ManagerInfo>> query(BasePageDTO pageDTO) {
+    public ResultData<PageData<ManagerInfoVO>> query(BasePageDTO pageDTO) {
         PageRequest pageRequest = PageRequest.of(pageDTO.getPageNum() - 1, pageDTO.getPageSize());
         Page<ManagerInfo> page = repository.findAll(pageRequest);
-        return ResultData.getSuccessData(PageData.convertPageData(page));
+        List<ManagerInfoVO> voList = ManagerInfoTransfer.INSTANCE.toVOList(page.getContent());
+        return ResultData.getSuccessData(PageData.convertPageData(page, voList));
     }
 
     @Override

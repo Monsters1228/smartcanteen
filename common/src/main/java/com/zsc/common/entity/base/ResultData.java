@@ -17,15 +17,20 @@ public class ResultData<T> implements Serializable {
     // 处理成功
     public static final String OK = "0000";
     public static final String OK_MSG = "操作成功";
+
     // 未知异常
     public static final String ERR = "9999";
+
     // 其他错误
     public static final String ERR_MSG = "操作失败";
     private static final long serialVersionUID = 1L;
+
     @ApiModelProperty(value = "状态码")
     private String code = ERR;
+
     @ApiModelProperty(value = "状态描述")
     private String msg = "";
+
     @ApiModelProperty(value = "数据")
     private T data;
 

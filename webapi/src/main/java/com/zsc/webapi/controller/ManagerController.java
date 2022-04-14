@@ -1,5 +1,7 @@
 package com.zsc.webapi.controller;
 
+import com.zsc.common.entity.base.BasePageDTO;
+import com.zsc.common.entity.base.PageData;
 import com.zsc.common.entity.base.ResultData;
 import com.zsc.common.entity.system.ManagerInfo;
 import com.zsc.common.service.ManagerService;
@@ -8,9 +10,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,13 +33,17 @@ public class ManagerController {
     }
 
 
-    @ApiOperation("获取管理员列表")
-    @GetMapping("/manager/getAll")
-    public ResultData getAll() {
-        return new ResultData(managerService.getAll());
+    @Operation(summary = "获取管理员列表")
+    @PostMapping("/manager/query")
+    public ResultData<PageData<ManagerInfo>> query(@Validated @RequestBody BasePageDTO pageDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            return ResultData.getFailResult(bindingResult.getFieldError().getDefaultMessage());
+        }
+        return managerService.query(pageDTO);
     }
 
-    @ApiOperation("根据名称查询管理员")
+
+    @Operation(summary = "根据名称查询管理员")
     @GetMapping("/manager/getOneByName")
     public ManagerInfo getOneByName() {
         return managerService.getItemByName("root");

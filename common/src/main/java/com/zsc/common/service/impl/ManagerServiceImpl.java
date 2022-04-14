@@ -2,19 +2,25 @@ package com.zsc.common.service.impl;
 
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.zsc.common.entity.base.BasePageDTO;
+import com.zsc.common.entity.base.PageData;
 import com.zsc.common.entity.base.ResultData;
 import com.zsc.common.entity.system.ManagerInfo;
 import com.zsc.common.entity.system.QManagerInfo;
 import com.zsc.common.repository.ManagerInfoRepository;
 import com.zsc.common.service.ManagerService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 /**
  * @author Monsters
  * @date 2022/4/11 7:29 下午
  */
+@Slf4j
 @Service
 public class ManagerServiceImpl implements ManagerService {
 
@@ -32,8 +38,10 @@ public class ManagerServiceImpl implements ManagerService {
 
 
     @Override
-    public List<ManagerInfo> getAll() {
-        return repository.findAll();
+    public ResultData<PageData<ManagerInfo>> query(BasePageDTO pageDTO) {
+        PageRequest pageRequest = PageRequest.of(pageDTO.getPageNum() - 1, pageDTO.getPageSize());
+        Page<ManagerInfo> page = repository.findAll(pageRequest);
+        return ResultData.getSuccessData(PageData.convertPageData(page));
     }
 
     @Override

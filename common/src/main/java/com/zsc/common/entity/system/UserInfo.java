@@ -29,6 +29,6 @@ public class UserInfo extends HasCreateEntity {
     // 班级
     private String className;
 
-    // 人脸照片UUID名称
-    private String faceFileName;
+    // 人脸id
+    private String faceId;
 }

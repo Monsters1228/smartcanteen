@@ -21,6 +21,7 @@
         <module>eureka</module>
         <module>webapi</module>
         <module>common</module>
+        <module>faceapi</module>
     </modules>
 
     <dependencies>

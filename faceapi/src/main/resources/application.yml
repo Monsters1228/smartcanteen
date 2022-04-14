@@ -18,19 +18,6 @@ spring:
     min-idle: 10
     max-active: 100
 
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    open-in-view: true
-
-  redis:
-    database: 6
-    port: 6379
-    timeout: 6000
-    host: check.monsters1228.cc
-
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

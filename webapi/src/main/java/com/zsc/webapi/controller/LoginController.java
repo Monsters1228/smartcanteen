@@ -1,14 +1,12 @@
 package com.zsc.webapi.controller;
 
 import com.zsc.common.entity.base.ResultData;
+import com.zsc.common.entity.model.dto.LoginDTO;
 import com.zsc.common.service.ManagerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Monsters
@@ -26,10 +24,9 @@ public class LoginController {
     }
 
     @Operation(summary = "管理员登录")
-    @GetMapping("/login")
-    public ResultData managerLogin(@RequestParam(value = "managerName") String managerName,
-                                   @RequestParam(value = "password") String password) {
-        return managerService.managerLogin(managerName, password);
+    @PostMapping("/login")
+    public ResultData managerLogin(@RequestBody LoginDTO loginDTO) {
+        return managerService.managerLogin(loginDTO.getManagerName(), loginDTO.getPassword());
     }
 
     @Operation(summary = "管理员登出")

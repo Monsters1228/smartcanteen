@@ -7,10 +7,8 @@ import com.zsc.common.entity.model.vo.ManagerInfoVO;
 import com.zsc.common.entity.system.ManagerInfo;
 import com.zsc.common.service.ManagerService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +44,23 @@ public class ManagerController {
 
     @Operation(summary = "根据名称查询管理员")
     @GetMapping("/manager/getOneByName")
-    public ManagerInfo getOneByName() {
+    public ManagerInfo getByName() {
         return managerService.getItemByName("root");
     }
+
+    @Operation(summary = "管理员新增")
+    @PostMapping("/manager/add")
+    public ResultData insert(@RequestBody ManagerInfo managerInfo){
+        // TODO
+        return null;
+    }
+
+    @Operation(summary = "manager/delete")
+    @GetMapping("/manager/delete/{Id}")
+    public ResultData delete(@PathVariable Integer Id){
+        //TODO
+        return null;
+    }
+
+
 }

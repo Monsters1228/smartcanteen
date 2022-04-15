@@ -12,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 public class EngineInit {
     public static void main(String[] args) {
         FaceEngine faceEngine = new FaceEngine();
-        String appId = "APP_ID:DyYDsnuujZeHZemQTy2P7DT3xmm5kV6QJYcLn8qL7mpY";
-        String sdkKey = "38R8ENiRGhJD8NVcF3Xvn66Uu9EkgUBYx4KhY7SnPAbu";
+        String appId = "DyYDsnuujZeHZemQTy2P7DT3xmm5kV6QJYcLn8qL7mpY";
+        String sdkKey = "38R8ENiRGhJD8NVcF3Xvn66V3FoyenfTh3efYEsDH7EX";
 
         FaceEngine faceEngineInit = new FaceEngine("/Users/monsters/Library/Java/Extensions");
         //激活引擎

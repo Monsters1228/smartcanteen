@@ -11,11 +11,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EngineInit {
     public static void main(String[] args) {
-        FaceEngine faceEngine = new FaceEngine();
         String appId = "DyYDsnuujZeHZemQTy2P7DT3xmm5kV6QJYcLn8qL7mpY";
         String sdkKey = "38R8ENiRGhJD8NVcF3Xvn66V3FoyenfTh3efYEsDH7EX";
 
-        FaceEngine faceEngineInit = new FaceEngine("/Users/monsters/Library/Java/Extensions");
+        FaceEngine faceEngineInit = new FaceEngine("D:\\WIN64");
         //激活引擎
         int activeCode = faceEngineInit.activeOnline(appId, sdkKey);
         log.info(String.valueOf(activeCode));

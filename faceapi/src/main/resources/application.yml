@@ -1,8 +1,8 @@
 server:
-  port: 8762
+  port: 8763
 spring:
   application:
-    name: SMARTCAFETERIA-WEBAPI
+    name: SMARTCAFETERIA-FACEAPI
   servlet:
     multipart:
       max-file-size: 10MB
@@ -21,3 +21,13 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+# spring cloud eureka 配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ #注册地址
+    fetch-registry: true
+    instance:
+      prefer-ip-address: true
+    register-with-eureka: true

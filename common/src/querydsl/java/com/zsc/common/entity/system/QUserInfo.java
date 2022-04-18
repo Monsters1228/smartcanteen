@@ -29,7 +29,7 @@ public class QUserInfo extends EntityPathBase<UserInfo> {
     //inherited
     public final StringPath creatorName = _super.creatorName;
 
-    public final StringPath faceFileName = createString("faceFileName");
+    public final StringPath faceId = createString("faceId");
 
     public final StringPath faculty = createString("faculty");
 

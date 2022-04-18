@@ -1,1 +1,23 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: SMARTCAFETERIA-EQUIPMENT1
 
+    # spring cloud eureka 配置
+    eureka:
+      client:
+        serviceUrl:
+          defaultZone: http://localhost:8761/eureka/
+        fetch-registry: true
+        instance:
+          prefer-ip-address: true
+        register-with-eureka: true
+
+feign:
+  httpclient:
+    enabled: true
+
+
+equipment:
+  name: equip1

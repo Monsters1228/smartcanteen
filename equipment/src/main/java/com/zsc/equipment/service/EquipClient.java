@@ -1,5 +1,8 @@
 package com.zsc.equipment.service;
 
+import com.zsc.equipment.config.GlobalConfig;
+import org.apache.tomcat.jni.Global;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,7 @@ import java.util.List;
 @FeignClient(name = "SMARTFETETIA")
 @Component
 public interface EquipClient {
+
     @PostMapping("/api/test")
     void sendTag(List<String> Tags,@RequestParam("equipName")String equipName);
 }

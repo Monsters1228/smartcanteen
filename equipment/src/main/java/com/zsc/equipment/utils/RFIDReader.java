@@ -1,6 +1,7 @@
 package com.zsc.equipment.utils;
 
 import UHF.UHFReader;
+import com.zsc.equipment.config.GlobalConfig;
 import com.zsc.equipment.service.EquipClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +16,18 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author Monsters
+ */
 @Component
 public class RFIDReader {
     private static final Logger log = LoggerFactory.getLogger(RFIDReader.class);
-    String equipName = "equip1";
+
     @Autowired
     private EquipClient equipClient;
+
+    @Autowired
+    private GlobalConfig globalConfig;
 
     private int fCmdRet = 0x30;
     UHFReader uhf = new UHFReader();
@@ -45,7 +52,9 @@ public class RFIDReader {
         Set<String> set = new LinkedHashSet<>();
         List<String> list = new ArrayList<>();
         String EPC[] = uhf.Inventory();
-        if (EPC == null) return null;
+        if (EPC == null) {
+            return null;
+        }
 
         for (String val : EPC) {
             list.add(val);
@@ -53,7 +62,7 @@ public class RFIDReader {
         set.addAll(list);
         list.clear();
         list.addAll(set);
-        equipClient.sendTag(list, equipName);
+        equipClient.sendTag(list, globalConfig.getName());
         return list;
     }
 }

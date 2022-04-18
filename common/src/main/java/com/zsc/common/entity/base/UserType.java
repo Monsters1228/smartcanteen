@@ -24,9 +24,11 @@ public enum UserType implements IHasValueAndNameEnum{
     @Getter
     private String name;
 
+    @Override
     public int getValue() {
         return value;
     }
+    @Override
     public String getName() {
         return name;
     }

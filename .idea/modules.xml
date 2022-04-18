@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/equipment/equipment.iml" filepath="$PROJECT_DIR$/equipment/equipment.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/faceapi/faceapi.iml" filepath="$PROJECT_DIR$/faceapi/faceapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/smartcanteen-backserver.iml" filepath="$PROJECT_DIR$/smartcanteen-backserver.iml" />

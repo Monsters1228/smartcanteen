@@ -10,16 +10,18 @@ import java.io.*;
  */
 public class Base64Utils {
     /**
-     * 图片转化成base64字符串
+     * 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
      *
      * @param imgPath
      * @return
      */
-    public static String GetImageStr(String imgPath) {// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
-        String imgFile = imgPath;// 待处理的图片
+    public static String GetImageStr(String imgPath) {
+        // 待处理的图片
+        String imgFile = imgPath;
         InputStream in = null;
         byte[] data = null;
-        String encode = null; // 返回Base64编码过的字节数组字符串
+        // 返回Base64编码过的字节数组字符串
+        String encode = null;
         // 对字节数组Base64编码
         Base64 encoder = new Base64();
         try {
@@ -50,9 +52,12 @@ public class Base64Utils {
      * @throws IOException
      */
     @SuppressWarnings("finally")
-    public static boolean GenerateImage(String imgData, String imgFilePath) throws IOException { // 对字节数组字符串进行Base64解码并生成图片
-        if (imgData == null) // 图像数据为空
+    public static boolean GenerateImage(String imgData, String imgFilePath) throws IOException {
+        // 图像数据为空
+        if (imgData == null)
+        {
             return false;
+        }
         Base64 decoder = new Base64();
         OutputStream out = null;
         try {
@@ -60,7 +65,8 @@ public class Base64Utils {
             // Base64解码
             byte[] b = decoder.decode(imgData);
             for (int i = 0; i < b.length; ++i) {
-                if (b[i] < 0) {// 调整异常数据
+                // 调整异常数据
+                if (b[i] < 0) {
                     b[i] += 256;
                 }
             }

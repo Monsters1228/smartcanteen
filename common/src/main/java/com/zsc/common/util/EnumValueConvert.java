@@ -30,16 +30,22 @@ public class EnumValueConvert<T extends Enum<?> & IHasValueAndNameEnum>
     /** 转换枚举为数值 */
     @Override
     public Integer convertToDatabaseColumn(T attribute) {
-        if (attribute == null) return null;
+        if (attribute == null) {
+            return null;
+        }
         return attribute.getValue();
     }
 
     /** 转换数据为枚举 */
     @Override
     public T convertToEntityAttribute(Integer dbData) {
-        if (dbData == null) return null;
+        if (dbData == null) {
+            return null;
+        }
         for (var item : enums) {
-            if (item.getValue() == dbData) return item;
+            if (item.getValue() == dbData) {
+                return item;
+            }
         }
         throw new RuntimeException(String.format("无法将值%d转换为%s", dbData, enumName));
     }
@@ -50,7 +56,9 @@ public class EnumValueConvert<T extends Enum<?> & IHasValueAndNameEnum>
         var enumsList = (N[]) classinfo.getEnumConstants();
 
         for (var item : enumsList) {
-            if (item.getValue() == value) return item;
+            if (item.getValue() == value) {
+                return item;
+            }
         }
         throw new RuntimeException(String.format("无法将值%d转换为%s", value, classinfo.getName()));
     }

@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/webapi/pom.xml" />
         <option value="$PROJECT_DIR$/eureka/pom.xml" />
         <option value="$PROJECT_DIR$/faceapi/pom.xml" />
+        <option value="$PROJECT_DIR$/equipment/pom.xml" />
       </list>
     </option>
   </component>
